@@ -19,14 +19,17 @@ filter {
 resource "aws_instance" "myec2" {
   ami    = data.aws_ami.myami.id 
   instance_type = "t2.micro"
+
+  tags = {
+    Name = "ec2-1"
+  }
 }
 
 resource "aws_instance" "myec2-2" {
   ami    = data.aws_ami.myami.id 
   instance_type = "t2.micro" 
-}
 
-resource "aws_instance" "myec2-3" {
-  ami    = data.aws_ami.myami.id 
-  instance_type = "t2.micro" 
+  tags {
+    Name = "ec2-2"
+  }
 }
